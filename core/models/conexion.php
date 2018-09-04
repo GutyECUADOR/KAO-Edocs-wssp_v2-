@@ -25,9 +25,9 @@ class conexion {
         $this->driver = 'mysql';
         $this->host = "127.0.0.1";
         $this->port = "3306";
-        $this->user = "";
+        $this->user = "root";
         $this->pass = "";
-        $this->dbname = "";
+        $this->dbname = "ksc_kao";
         $this->charset = "utf8";
       
     }
