@@ -25,5 +25,16 @@ class loginModel  {
            
         
     }
+
+
+    public function validaMail($mail){
+        $query = "SELECT ruc, nombre, email, password FROM tbl_cliente WHERE email = :mail"; 
+        $stmt = $this->instancia_cnx->prepare($query); 
+        $stmt->bindParam(':mail', $mail); 
+        $stmt->execute(); 
+       
+        $resulset = $stmt->fetch();
+        return $resulset;
+    }
     
 }

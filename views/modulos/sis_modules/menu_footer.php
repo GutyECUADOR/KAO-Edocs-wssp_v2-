@@ -1,8 +1,8 @@
             <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Settings">
+              <a data-toggle="tooltip" data-placement="top" title="Configuraciones">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+              <a data-toggle="tooltip" data-placement="top" title="Acerca de">
                 <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
               </a>
               <a data-toggle="tooltip" data-placement="top" title="Lock">

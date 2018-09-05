@@ -12,7 +12,7 @@ class ajaxModel  {
     }
 
     function getAllDocumentsByTipeDoc($RUC, $fecha_INI, $fecha_FIN,  $tipoDOC){
-        $query = ("SELECT A.*, B.nombre as ClienteN FROM tbl_transaccion as A INNER JOIN tbl_cliente as B ON A.ruc = B.ruc WHERE A.ruc = '$RUC'  AND a.tipo='$tipoDOC' AND A.fecha BETWEEN '$fecha_INI' AND '$fecha_FIN' LIMIT 10");
+        $query = ("SELECT A.*, B.nombre as ClienteN FROM tbl_transaccion as A INNER JOIN tbl_cliente as B ON A.ruc = B.ruc WHERE A.ruc = '$RUC'  AND A.tipo='$tipoDOC' AND A.fecha BETWEEN '$fecha_INI' AND '$fecha_FIN' LIMIT 100");
         $stmt = $this->instancia_cnx->query($query);
         $stmt->execute();
         return $resultset = $stmt->fetchAll();

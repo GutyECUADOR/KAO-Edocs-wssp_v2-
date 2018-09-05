@@ -1,47 +1,13 @@
 <?php 
-    if (isset($_SESSION["usuarioActivo"])){
+  
+    if (isset($_SESSION["usuarioRUC"])){
         echo "Sigue Logeado";
         header('location:index.php?action=inicio');
         
     }
 
+    $login = new controllers\loginController();
 ?>
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title><?php echo APP_NAME?> | Login </title>
-
-    <!-- Bootstrap -->
-   
-    <link href="<?php echo ROOT_PATH; ?>assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="<?php echo ROOT_PATH; ?>assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="<?php echo ROOT_PATH; ?>assets/nprogress/nprogress.css" rel="stylesheet">
-    <!-- Animate.css -->
-    <link href="<?php echo ROOT_PATH; ?>assets/animate/animate.min.css" rel="stylesheet">
-
-    <!-- PNotify -->
-    <link href="<?php echo ROOT_PATH; ?>assets/pnotify/dist/pnotify.css" rel="stylesheet">
-    <link href="<?php echo ROOT_PATH; ?>assets/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
-    <link href="<?php echo ROOT_PATH; ?>assets/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
-    
-    <!-- Estilos Personalizados extra -->
-    <link href="<?php echo ROOT_PATH; ?>assets/styles.css" rel="stylesheet">
-
-    <!-- Custom Theme Style -->
-    <link href="<?php echo ROOT_PATH; ?>assets/build/css/custom.css" rel="stylesheet">
-
-    
-
-    
-  </head>
 
   <body class="login">
     <div>
@@ -56,13 +22,10 @@
           <section class="login_content">
               
               <?php 
-    
-                $login = new controllers\loginController();
                 $login->actionCatcherController();
-
               ?>
               
-            <form action="" method="POST" autocomplete="on">
+            <form action="" method="POST" autocomplete="off">
               <h1>Ingreso a Sistema</h1>
               <div>
                 <input type="text" class="form-control" name="txt_usuario" placeholder="Nombre de Usuario o RUC" required="" />
@@ -71,17 +34,55 @@
                 <input type="password" class="form-control" name="txt_password" placeholder="Contraseña" required="" />
               </div>
               <div>
-                <input type="submit" class="btn btn-default submit" name="action" value="Ingresar">
-                <a class="reset_pass" href="#">Olvidaste tu contraseña?</a>
+                <input type="submit" class="btn btn-default submit btn-block" name="action" value="Ingresar">
+                <div class="clearfix"></div>
+                <a href="#signup" class="to_register"> ¿Olvidaste tu contraseña? </a>
+              </div>
+
+             
+
+              <div class="separator">
+                <div>
+                  <h1><i class="fa fa-lock"></i> Kao Sport Center</h1>
+                  <p><?php echo date('Y')?> All Rights Reserved. v. <?php echo APP_VERSION?></p>
+                  <p> Registrado para: <?php echo EMPRESA_NAME?></p>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+        <div class="login_wrapper">
+
+        </div>
+        <div id="register" class="animate form registration_form wrapshadow">
+          <section class="login_content">
+
+            <?php
+              $login->resetPassword();
+            ?>
+
+            <form action="" method="POST" autocomplete="off">
+              <h1>Recuperar Acceso</h1>
+              <div>
+                <p>
+                1. Revisa antes que tus datos de acceso USUARIO y CONTRASEÑA se encuentren correctamente escritos y sin espacios. </br>
+                2. Ingresa el e-mail que has registrado en los locales de KAOSPORT al momento de realizar tus compras. </br>
+                3. Si no encuentras el e-mail con la clave de acceso en tu bandeja de entrada, revisa tu bandeja de correo no deseado.
+                </p>
+              </div>
+              <div>
+                <input type="email" class="form-control" name="txt_recuperaMail" placeholder="Email" required="" />
+              </div>
+              <div>
+                <input type="submit" class="btn btn-default submit btn-block" name="action" value="Recuperar">
               </div>
 
               <div class="clearfix"></div>
 
               <div class="separator">
-                <!--
-                <p class="change_link">New to site?
-                  <a href="#signup" class="to_register"> Create Account </a>
-                </p> -->
+                <p class="change_link">Ya tienes cuenta ?
+                  <a href="#signin" class="to_register"> Ingresar </a>
+                </p>
 
                 <div class="clearfix"></div>
                 <br />
@@ -90,42 +91,7 @@
                   <h1><i class="fa fa-lock"></i> Kao Sport Center</h1>
                   <p><?php echo date('Y')?> All Rights Reserved. v. <?php echo APP_VERSION?></p>
                 </div>
-              </div>
-            </form>
-          </section>
-        </div>
-
-        <div id="register" class="animate form registration_form">
-          <section class="login_content">
-            <form>
-              <h1>Create Account</h1>
-              <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
-              </div>
-              <div>
-                <input type="email" class="form-control" placeholder="Email" required="" />
-              </div>
-              <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
-              </div>
-              <div>
-                <a class="btn btn-default submit" href="index.html">Submit</a>
-              </div>
-
-              <div class="clearfix"></div>
-
-              <div class="separator">
-                <p class="change_link">Already a member ?
-                  <a href="#signin" class="to_register"> Log in </a>
-                </p>
-
-                <div class="clearfix"></div>
-                <br />
-
-                <div>
-                  <h1><i class="fa fa-paw"></i> Kao Sport Center</h1>
-                  <p><?php echo date('Y')?> All Rights Reserved.</p>
-                  </div>
+                </div>
               </div>
             </form>
           </section>
@@ -133,7 +99,6 @@
       </div>
     </div>
   </body>
-</html>
 
     <!-- jQuery -->
     <script src="<?php echo ROOT_PATH; ?>assets/jquery/dist/jquery.min.js"></script>
@@ -147,8 +112,9 @@
 
     <!-- Custom Theme Scripts -->
     <script src="<?php echo ROOT_PATH; ?>assets/build/js/custom.js"></script>
-   
-<script>
+
+
+    <script>
     $(document).ready(function() {
         new PNotify({
           title: 'Estimado Usuario',

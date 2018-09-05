@@ -103,14 +103,14 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                   <div class="x_panel">
                     <div class="x_title">
-                      <h2>Ultimos Documentos <small>Ultimos 10 elementos</small></h2>
+                      <h2>Ultimos Documentos <small>Ultimos 100 elementos</small></h2>
                       
                       <div class="clearfix"></div>
                     </div>
                     
                        <div class="x_content">
 
-                    <p>Utilice las <code>Opciones de Busqueda</code> si su documento no se encuentra listado. Los resultados de busqueda pueden tardar hasta <code>30 segundos</code> segun tipo de documento.</p>
+                    <p>Utilice las <code>Opciones de Busqueda</code> si su documento no se encuentra listado. Los resultados de busqueda pueden tardar hasta <code>15 segundos</code> en mostrarse.</p>
  
                     <fieldset>
                           <div class="control-group">
@@ -222,7 +222,7 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            Gentelella - Bootstrap Admin Template.
+            Todos los derechos reservados @2018.
           </div>
           <div class="clearfix"></div>
         </footer>
@@ -244,7 +244,7 @@
     <script src="<?php echo ROOT_PATH; ?>assets/bootstrap-daterangepicker/daterangepicker.js"></script>
     <!-- bootstrap-datetimepicker -->    
     <script src="<?php echo ROOT_PATH; ?>assets/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-     <!-- bootstrap-datetimepicker es-->    
+    <!-- bootstrap-datetimepicker locales -->    
     <script src="<?php echo ROOT_PATH; ?>assets/bootstrap-datetimepicker/locale/es.js"></script>
     
     <!-- Ion.RangeSlider -->

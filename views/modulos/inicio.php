@@ -1,4 +1,4 @@
-<?php 
+<?php
     if (!isset($_SESSION["usuarioRUC"])){
            header("Location:index.php?&action=login");  
         } 
@@ -14,7 +14,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" href="images/favicon.ico" type="image/ico" />
+	  <link rel="icon" href="images/favicon.ico" type="image/ico" />
 
     <!-- Bootstrap -->
     <link href="<?php echo ROOT_PATH; ?>assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -122,7 +122,7 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            Gentelella - Bootstrap Admin Template.
+            Todos los derechos reservados @2018.
           </div>
           <div class="clearfix"></div>
         </footer>

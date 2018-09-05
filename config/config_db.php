@@ -1,4 +1,6 @@
 <?php
+//Configurar el archivo en las clases.
+
 $array_db = array(
     'dsn'=>"",  //Unicamente necesario en conexiones ODBC
     'driver'=>"mysql",  //Driver de tipo de DB a conectar
