@@ -5,7 +5,8 @@
         
     $edocs = new models\EDocsClass();    
     $resultset = $edocs->getAllDocumentsByRUC($_SESSION["usuarioRUC"], 'FV', $edocs->getDateNow(), $edocs->getDateNow());
-?>
+   
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">

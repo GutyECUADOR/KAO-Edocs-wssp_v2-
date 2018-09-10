@@ -12,7 +12,7 @@
      <link rel="icon" href="<?php echo ROOT_PATH; ?>assets/images/favicon.ico" type="image/ico" />
 
 
-    <title><?php echo APP_NAME ?> | Login</title>
+    <title><?php echo APP_NAME ?></title>
 
     <!-- Bootstrap -->
    

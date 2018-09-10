@@ -12,6 +12,7 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="?action=userconfig"><i class="fa fa-wrench pull-right"></i> Configuracion de Usuario</a></li>
                     <li><a href="?action=logout"><i class="fa fa-sign-out pull-right"></i> Salir de Sistema</a></li>
                   </ul>
                 </li>

@@ -15,6 +15,10 @@ class mainModel {
             case 'login':
                 $contenido = "views/modulos/loginView.php";
                 break;
+
+            case 'userconfig':
+            $contenido = "views/modulos/userConfig.php";
+            break;    
             
             case 'logout':
                 $contenido = "views/modulos/cerrarSesion.php";

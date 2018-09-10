@@ -9,17 +9,7 @@
     require_once './core/models/loginModel.php';
     require_once './core/controllers/ajaxController.php';
     require_once './core/models/ajaxModel.php';
-?>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        
-        <link rel="shortcut icon" href="views/img/favicon.ico">
-    </head>
-    <body>
-        <?php
+
         $app = new controllers\mainController();
         $app->loadtemplate();
-        ?>
-    </body>
-</html>
+   
