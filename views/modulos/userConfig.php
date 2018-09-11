@@ -7,7 +7,6 @@
     $edocs = new models\EDocsClass();    
     $userData = $edocs->getInfoUserActive($_SESSION["usuarioRUC"]); 
     
-    var_dump($_POST['txt_ruc']);
 ?>
 
 <!DOCTYPE html>
@@ -193,14 +192,39 @@
     <!-- jQuery Knob -->
     <script src="<?php echo ROOT_PATH; ?>assets/jquery-knob/dist/jquery.knob.min.js"></script>
     <!-- Cropper No Supported -->
+
+    <!-- PNotify -->
+    <script src="<?php echo ROOT_PATH; ?>assets/pnotify/dist/pnotify.js"></script>
+    <script src="<?php echo ROOT_PATH; ?>assets/pnotify/dist/pnotify.buttons.js"></script>
+    <script src="<?php echo ROOT_PATH; ?>assets/pnotify/dist/pnotify.nonblock.js"></script>
     
     <!-- Custom Theme Scripts -->
-    <script src="<?php echo ROOT_PATH; ?>assets/build/js/custom.min.js"></script>
+    <script src="<?php echo ROOT_PATH; ?>assets/build/js/custom.js"></script>
      
     <!-- Estilos Personalizados extra -->
     <script src="<?php echo ROOT_PATH; ?>assets/functions.js"></script>
     
+    <?php
+   if (isset($_POST['last_password']) && isset($_POST['new_password']) && isset($_POST['new_password_confirm'])  ) {
+      $RUC = $_SESSION['usuarioRUC'];
+      $oldPass = $_POST['last_password'];
+      $userInfoOldPass = $userData['password'];
+      $nuevaPass = $_POST['new_password'];
+      $confirmPass = $_POST['new_password_confirm'];
+
+      if ($nuevaPass === $confirmPass && $oldPass === $userInfoOldPass) {
+        if($edocs->updatePassword($RUC, $nuevaPass)){
+          $edocs->showCorrectUpdate('Su contraseña ha sido actualizada');
+        }else{
+          $edocs->showIncorrectUpdate('No se ha podido actualizar su contraseña.');
+        }
+      }else{
+        $edocs->showIncorrectUpdate('Las contraseñas no coinciden, reintente.');
+      }
+
     
+    }
+    ?>
     
   </body>
 </html>

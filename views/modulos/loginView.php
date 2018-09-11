@@ -128,6 +128,6 @@
           addclass: 'dark'
       });
    
-});
+  });
 
-</script>
+  </script>

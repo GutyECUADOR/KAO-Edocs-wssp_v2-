@@ -16,7 +16,7 @@ class EDocsClass {
     }
 
     function getInfoUserActive($RUC){
-        $query = ("SELECT ruc, nombre FROM `tbl_cliente` WHERE ruc='$RUC' LIMIT 1");
+        $query = ("SELECT ruc, nombre, password FROM `tbl_cliente` WHERE ruc='$RUC' LIMIT 1");
         $stmt = $this->instancia_cnx->query($query);
         $stmt->execute();
         $resultset = $stmt->fetch();
@@ -31,10 +31,11 @@ class EDocsClass {
         return $resultset;
     }
 
-    function updatePassword($RUC){
-        $query = "UPDATE `tbl_cliente` SET `password` = '123' WHERE ruc = :ruc"; 
+    function updatePassword($RUC, $nuevaPassword){
+        $query = "UPDATE `tbl_cliente` SET `password` = :password WHERE ruc = :ruc"; 
         $stmt = $this->instancia_cnx->prepare($query); 
         $stmt->bindParam(':ruc', $RUC); 
+        $stmt->bindParam(':password', $nuevaPassword); 
          
         if ($stmt->execute()) {
             return true;
@@ -46,6 +47,49 @@ class EDocsClass {
     
     function getDateNow() { 
       return date('Y-m-d');
+    }
+
+    function showIncorrectUpdate($mensaje){
+        echo "
+        <script>
+        $(document).ready(function() {
+            new PNotify({
+                title: 'Estimado Usuario',
+                type: 'warning',
+                delay: 3000,
+                text: '$mensaje',
+                nonblock: {
+                    nonblock: false
+                },
+                styling: 'bootstrap3'
+            
+            });
+        
+        });
+
+        </script>";
+    }
+
+    function showCorrectUpdate($mensaje){
+        
+        echo "
+        <script>
+        $(document).ready(function() {
+            new PNotify({
+                title: 'Estimado Usuario',
+                type: 'success',
+                delay: 3000,
+                text: '$mensaje',
+                nonblock: {
+                    nonblock: false
+                },
+                styling: 'bootstrap3'
+                
+            });
+        
+        });
+
+        </script>";
     }
     
     function getTypeDocument($codDocument) {
