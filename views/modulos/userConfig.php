@@ -207,8 +207,8 @@
     <?php
    if (isset($_POST['last_password']) && isset($_POST['new_password']) && isset($_POST['new_password_confirm'])  ) {
       $RUC = $_SESSION['usuarioRUC'];
-      $oldPass = $_POST['last_password'];
-      $userInfoOldPass = $userData['password'];
+      $oldPass = rtrim($_POST['last_password']);
+      $userInfoOldPass = rtrim($userData['password']);
       $nuevaPass = $_POST['new_password'];
       $confirmPass = $_POST['new_password_confirm'];
 
